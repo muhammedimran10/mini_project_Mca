@@ -16,4 +16,4 @@ class CompanyCreationForm(ModelForm):
 
     class Meta:
         model = Company
-        fields = '__all__'
+        exclude = ['user']

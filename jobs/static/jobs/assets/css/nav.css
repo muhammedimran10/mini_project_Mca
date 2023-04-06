@@ -1,5 +1,5 @@
-#div_c{
-    min-width: 40%;
+.col{
+    min-width: 45%;
 }
 
 .navbar{
@@ -12,7 +12,7 @@
 .nav-items{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     
 }
 

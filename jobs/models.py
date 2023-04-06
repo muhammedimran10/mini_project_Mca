@@ -3,11 +3,14 @@ from users.models import User
 # Create your models here.
 
 class Company(models.Model):
-    User = models.OneToOneField(User,related_name='company',on_delete=models.CASCADE)
+    user = models.OneToOneField(User,related_name='company',on_delete=models.CASCADE)
     company_name = models.CharField(max_length=225)
     company_addres = models.CharField(max_length=225,blank=True, null=True)
     company_zipcode = models.CharField(max_length=225,blank=True, null=True)
     company_place = models.CharField(max_length=225,blank=True, null=True)
+
+    def __str__(self):
+        return self.company_name
 
 
 class Job(models.Model):

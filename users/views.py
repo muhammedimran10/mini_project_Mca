@@ -4,6 +4,7 @@ from django.contrib.auth import login,logout
 
 from users.models import Userprofile
 from users.forms import UserRegistrationForm,CompanyCreationForm
+from jobs.models import Company
 # Create your views here.
 
 def sinup(request):
@@ -30,14 +31,31 @@ def register_employer(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         form2 = CompanyCreationForm(request.POST)
+
         if form.is_valid():
-            user = form.save()
-            
-            userprofile= Userprofile.objects.create(user=user, is_employer=True)
-            userprofile.save()
 
             if form2.is_valid():
-                form2.save()
+                user = form.save()
+
+                # company_name = request.POST.get('company_name')
+                # company_addres = request.POST.get('company_addres')
+                # company_zipcode = request.POST.get('company_zipcode')
+                # company_place = request.POST.get('company_place')
+
+                # company= Company.objects.create(
+                #     user=user,
+                #     company_name=company_name,
+                #     company_addres=company_addres,
+                #     company_zipcode=company_zipcode,
+                #     company_place=company_place
+                #     )
+
+                company = form2.save(commit=False)
+                company.user = user
+                company.save()
+        
+                userprofile= Userprofile.objects.create(user=user, is_employer=True)
+                userprofile.save()
                 return redirect('home')
         
     else:
