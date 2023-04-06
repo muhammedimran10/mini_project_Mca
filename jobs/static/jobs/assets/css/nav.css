@@ -1,0 +1,38 @@
+#div_c{
+    min-width: 40%;
+}
+
+.navbar{
+    width: 100%;
+    height: 10%;
+    padding: 20px 5%;
+}
+
+
+.nav-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.nav-items .nav-div{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    text-decoration: none;
+    text-decoration-style: none;
+
+}
+
+.nav-items .nav-div .nav-item{
+    list-style: none;
+    margin: 0 10px;
+    font-size: large;
+    font-weight: 600;
+}
+
+.container{
+    padding:2% 10%;
+}
+

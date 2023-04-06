@@ -1,0 +1,28 @@
+{% extends "jobs/base.html" %}
+
+{% block content %}
+    <div style="padding: 0% 10% ;">
+        <h3 class="major">Join Today</h3>
+        <form action="." method="post">
+
+            {% csrf_token %}
+
+            {{ form.errors }}
+
+            {{form.username.label}}
+            {{form.username}}
+            {{form.email.label}}
+            {{form.email}}
+            {{form.password1.label}}
+            {{form.password1}}
+            {{form.password2.label}}
+            {{form.password2}}
+
+            <br>
+            <button type="submit" class="button primary color2">Submit</button>
+            <hr>
+            <p>Already have an account?<a href="{% url 'login' %}">Log-in</a></p>
+        </form>
+    </div>
+{% endblock %}
+

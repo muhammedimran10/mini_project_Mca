@@ -1,0 +1,16 @@
+{% extends "jobs/base.html" %}
+
+{% block content %}
+<div class="container">
+    <h3 class="major">Log-in</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        {{form.as_p}}
+        <br>
+        <button type="submit" class="button primary color2">log-in</button>
+
+        </button>
+    </form>
+</div>
+{% endblock %}

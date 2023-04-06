@@ -1,0 +1,46 @@
+{% extends "jobs/base.html" %}
+
+{% block content %}
+<div style="padding: 0% 10%;">
+    <h3 class="major">Join Today</h3>
+    <form action="." method="post">
+
+        {% csrf_token %}
+        {{ form.errors }}
+
+        <div class="nav-items" >
+            
+            <div class="col" id="div_c">
+                {{form.username.label}}
+                {{form.username}}
+                {{form.email.label}}
+                {{form.email}}
+                {{form.password1.label}}
+                {{form.password1}}
+                {{form.password2.label}}
+                {{form.password2}}
+            </div>
+            
+            <div class="col">
+                {{form2.company_name.label}}
+                {{form2.company_name}}
+                {{form2.company_addres.label}}
+                {{form2.company_addres}}
+                {{form2.company_zipcode.label}}
+                {{form2.company_zipcode}}
+                {{form2.company_place.label}}
+                {{form2.company_place}}
+                
+            </div>
+
+        </div>
+        <br>
+        <button type="submit" class="button primary color2">Submit</button>
+        <hr>
+        <p>Already have an account?<a href="{% url 'login' %}">Log-in</a></p>
+    </form>
+</div>
+{% endblock %}
+
+
+            

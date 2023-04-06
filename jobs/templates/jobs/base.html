@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{% static 'jobs/assets/css/main.css' %}" />
+    <noscript><link rel="stylesheet" href="{% static 'jobs/assets/css/noscript.css' %}" /></noscript>
+    <link rel="stylesheet" href="{% static 'jobs/assets/css/nav.css' %}" />
+    <title>Document</title>
+</head>
+<body>
+    <!-- banner -->
+
+    <section class="panel " style="width:100%;">
+        <div class="content color0" style="width:100%;">
+
+            <nav class="navbar">                
+                <div class="">
+                    
+                    <div class="nav-items">
+
+                        <div class="nav-div">
+                            <h3>hoooli</h3>
+                        </div>
+        
+                        <ul class="nav-div">
+                            <li class="nav-item">
+                                <a class="" href="#section_1">Home</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="" href="#section_2">About</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="" href="#section_3">Membership</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="" href="#section_4">Events</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="" href="#section_5">Contact Us</a>
+                            </li>
+                            {% if request.user.is_authenticated %}
+                            <li>
+                                <a class="button primary color2" href="{% url 'logout'%}">Logout</a>
+                            </li>
+                            {%else%}
+                                <li> 
+                                    <a class="button primary color1" href="{% url 'signup' %}">Sign up</a>
+                                </li>
+                                <li>
+                                    <a class="button primary color2" href="{% url 'login' %}">log in</a>
+                                </li>
+                            {%endif%}
+                            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        <hr>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert">
+
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </section>
+</body>
+</html>
