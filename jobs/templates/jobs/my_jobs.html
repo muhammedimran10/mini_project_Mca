@@ -2,8 +2,6 @@
 
 {% block content %}
 <div class="container">
-    <h1>Hello {{request.user}}</h1>
-   
     <div class="jobs">
         {% for job in jobs%}
             <div class="card">
@@ -14,7 +12,7 @@
                     {{job.created_by.company}} <br>
                     {{job.created_at}} <br>
                     {{job.long_description}} <br></p>
-                    <a href="." class="button primary color1">Applay</a><br><br><br>
+                    <a href="{% url 'edit_job' job.id%}" class="button primary color1">Edit</a><br><br><br>
                 </div>
             </div>
         {%endfor%}

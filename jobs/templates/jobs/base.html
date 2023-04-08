@@ -13,7 +13,7 @@
 <body>
     <!-- banner -->
 
-    <section class="panel " style="width:100%;">
+    <section class="panel"  style="width:100%;">
         <div class="content color0" style="width:100%;">
 
             <nav class="navbar">                
@@ -37,14 +37,15 @@
                             <li class="nav-item">
                                 <a class="" href="#section_3">Membership</a>
                             </li>
-
+                            {% if request.user.userprofile.is_employer %}
                             <li class="nav-item">
-                                <a class="" href="#section_4">Events</a>
+                                <a class="" href="{% url 'my_jobs'%}">My-Jobs</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="" href="#section_5">Contact Us</a>
+                                <a class="" href="{% url 'add_job'%}">Create Job</a>
                             </li>
+                            {%endif%}
                             {% if request.user.is_authenticated %}
                             <li>
                                 <a class="button primary color2" href="{% url 'logout'%}">Logout</a>

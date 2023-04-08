@@ -1,0 +1,14 @@
+{% extends "jobs/base.html" %}
+
+{% block content %}
+    {{form.errors}}
+    <div class="container">
+        <h2>JOB</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form}}
+            <br>
+            <button class="button primary color2">Create Job</button>
+        </form>
+    </div>
+{% endblock %}

@@ -28,9 +28,7 @@ class Job(models.Model):
     title = models.CharField(max_length=225)
     short_description = models.TextField()
     long_description = models.TextField(blank=True,null=True)
-
-    company = models.ForeignKey(Company,related_name='jobs',on_delete=models.CASCADE)
-
+    
     created_by = models.ForeignKey(User,related_name='jobs',on_delete=models.CASCADE)
     
     created_at = models.DateTimeField(auto_now_add=True)
