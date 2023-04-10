@@ -14,7 +14,7 @@
                     {{job.created_by.company}} <br>
                     {{job.created_at}} <br>
                     {{job.long_description}} <br></p>
-                    <a href="." class="button primary color1">Applay</a><br><br><br>
+                    <a href="{%url 'applay_for_job' job.id%}" class="button primary color1">Applay</a><br><br><br>
                 </div>
             </div>
         {%endfor%}

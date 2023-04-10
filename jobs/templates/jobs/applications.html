@@ -1,0 +1,12 @@
+{% extends "jobs/base.html" %}
+
+{% block content %}
+
+{%for application in applications%}
+<div class="container">
+    <h3>
+        <a href="{% url 'view_application' application.id%}">{{application.applied_by.username}}</a><br>
+    </h3>
+</div>
+{%endfor%}
+{% endblock %}

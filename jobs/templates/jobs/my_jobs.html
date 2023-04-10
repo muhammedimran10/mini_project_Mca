@@ -2,6 +2,8 @@
 
 {% block content %}
 <div class="container">
+    {% if request.user.userprofile.is_employer %}
+    <h2>Jobs</h2>
     <div class="jobs">
         {% for job in jobs%}
             <div class="card">
@@ -12,11 +14,29 @@
                     {{job.created_by.company}} <br>
                     {{job.created_at}} <br>
                     {{job.long_description}} <br></p>
-                    <a href="{% url 'edit_job' job.id%}" class="button primary color1">Edit</a><br><br><br>
-                </div>
+                    <a href="{% url 'applications' job.id%}" class="button primary color1">view applications</a><br><br><br>
+                </div> 
             </div>
         {%endfor%}
     </div>
-    
+    {%else%}
+    <h2>Applaid jobs</h2><br>
+    <div class="jobs">
+        
+        {% for apl in application%}
+            <div class="card">
+                <div class="container">
+                    <h3>{{apl.job.title}}</h3>
+                    <p>
+                    {{apl.job.short_description}} <br>
+                    {{apl.job.created_by.company}} <br>
+                    {{apl.job.created_at}} <br>
+                    {{apl.job.long_description}} <br></p>
+                    <a href="{% url 'view_application' apl.id%}" class="button primary color1">view applications</a><br><br><br>
+                </div> 
+            </div>
+        {%endfor%}
+    </div> 
+    {%endif%}
 </div>
 {% endblock %}

@@ -14,10 +14,10 @@
     <!-- banner -->
 
     <section class="panel"  style="width:100%;">
-        <div class="content color0" style="width:100%;">
+        <div class="content color0" style="width:100%;height: fit-content;min-height: 100%;">
 
             <nav class="navbar">                
-                <div class="">
+               
                     
                     <div class="nav-items">
 
@@ -38,14 +38,19 @@
                                 <a class="" href="#section_3">Membership</a>
                             </li>
                             {% if request.user.userprofile.is_employer %}
-                            <li class="nav-item">
-                                <a class="" href="{% url 'my_jobs'%}">My-Jobs</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a class="" href="{% url 'my_jobs'%}">My-Jobs</a>
+                                </li>
 
-                            <li class="nav-item">
-                                <a class="" href="{% url 'add_job'%}">Create Job</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a class="" href="{% url 'add_job'%}">Create Job</a>
+                                </li>
+                            {%else%}
+                                <li class="nav-item">
+                                    <a class="" href="{% url 'my_applications'%}">My-applications</a>
+                                </li>
                             {%endif%}
+
                             {% if request.user.is_authenticated %}
                             <li>
                                 <a class="button primary color2" href="{% url 'logout'%}">Logout</a>
@@ -61,14 +66,14 @@
                             
                         </ul>
                     </div>
-                </div>
+                
             </nav>
-        <hr>
+            <hr style="margin: 0;">
             {% if messages %}
                 {% for message in messages %}
-                    <div class="alert">
+                    <!-- <div class="alert">
 
-                    </div>
+                    </div> -->
                 {% endfor %}
             {% endif %}
             {% block content %}

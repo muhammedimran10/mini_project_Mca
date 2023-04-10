@@ -41,7 +41,17 @@ class Job(models.Model):
 
 class Application(models.Model):
     job = models.ForeignKey(Job,related_name='applications',on_delete=models.CASCADE)
-    content= models.TextField()
-    
+    content= models.TextField(default="")
+    experience= models.TextField()
     applied_by = models.ForeignKey(User,related_name='applications',on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class ConversationMessages(models.Model):
+    application = models.ForeignKey(Application,related_name="conversitionmessages",on_delete=models.CASCADE)
+    content = models.TextField()
+    created_by = models.ForeignKey(User, related_name="conversitionmessages",on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_at']
